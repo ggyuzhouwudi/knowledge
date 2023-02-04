@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="author.module.dao.MenuMapper">
+
+  <resultMap id="MENU_RESULT_MAP" type="author.module.entity.Menu">
+    <id property="id" column="id"/>
+    <result property="pattern" column="pattern"/>
+    <collection property="roles" ofType="author.module.entity.Role">
+      <id property="id" column="rid"/>
+      <result property="name" column="rName"/>
+      <result property="nameZh" column="rNameZh"/>
+    </collection>
+  </resultMap>
+  <select id="getMenus" resultMap="MENU_RESULT_MAP">
+    select m.id,
+           pattern,
+           r.id     as rid,
+           r.name   as rName,
+           r.nameZh as rNameZh
+    from menu m
+           left join menu_role mr on m.`id` = mr.`mid`
+           left join role r on r.`id` = mr.`rid`
+  </select>
+</mapper>
