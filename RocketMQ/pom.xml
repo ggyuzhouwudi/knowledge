@@ -13,12 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>basic</module>
+        <module>boot</module>
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-client</artifactId>
-        </dependency>
-    </dependencies>
 </project>
