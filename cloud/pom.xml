@@ -10,4 +10,9 @@
     </parent>
 
     <artifactId>cloud</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>ribbon</module>
+        <module>nacos</module>
+    </modules>
 </project>
