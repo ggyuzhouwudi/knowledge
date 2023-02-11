@@ -3,7 +3,7 @@ server:
 spring:
   # nacos会将应用名当成服务名
   application:
-    name: order-ribbon-service
+    name: order-service
   cloud:
     nacos:
       server-addr: localhost:8848
@@ -13,3 +13,13 @@ spring:
 stock-ribbon-service:
   ribbon:
     NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+# 因为Springboot的日志默认级别是info，所以这里也要降低级别才看的到
+logging:
+  level:
+    # 指定打印的文件夹和级别
+    order.feign: debug
+feign:
+  client:
+    config:
+      stock-service:
+        logger-level: FULL
