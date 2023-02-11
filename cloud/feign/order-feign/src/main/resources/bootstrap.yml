@@ -1,0 +1,15 @@
+server:
+  port: 9100
+spring:
+  # nacos会将应用名当成服务名
+  application:
+    name: order-ribbon-service
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      # 如果开启了权限，账号密码必须要显式写清
+      username: nacos
+      password: nacos
+stock-ribbon-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule

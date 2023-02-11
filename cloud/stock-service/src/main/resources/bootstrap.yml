@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9102
 spring:
   # nacos会将应用名当成服务名
   application:
@@ -7,7 +7,6 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
-      discovery:
-        username: nacos
-        password: nacos
-        namespace: public
+      # 如果开启了权限，账号密码必须要显式写清
+      username: nacos
+      password: nacos
