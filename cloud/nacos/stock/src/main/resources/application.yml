@@ -1,0 +1,13 @@
+server:
+  port: 9001
+spring:
+  # nacos会将应用名当成服务名
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public

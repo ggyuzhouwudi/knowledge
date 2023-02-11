@@ -1,0 +1,15 @@
+server:
+  port: 9000
+spring:
+  # nacos会将应用名当成服务名
+  application:
+    name: mall.order
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      # 如果开启了权限，账号密码必须要显式写清
+      username: nacos
+      password: nacos
+      config:
+        namespace: public
+        file-extension: yaml

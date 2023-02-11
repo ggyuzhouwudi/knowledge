@@ -39,23 +39,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
-            .anyRequest().authenticated()
-            .and()
-            .formLogin()
-            // 认证成功后处理
-            .successHandler(new CustomAuthenticationSuccessHandler())
-            // 认证失败后处理
-            .failureHandler(new CustomAuthenticationFailureHandler())
-            .and()
-            .logout()
-            // 设置注销路径
-            .logoutRequestMatcher(new OrRequestMatcher(new AntPathRequestMatcher("/logout",
-                HttpMethod.DELETE.name())))
-            // 注销成功后处理
-            .logoutSuccessHandler(new CustomLogoutSuccessHandler())
-            .and()
-            .csrf().disable();
+        http.authorizeRequests().anyRequest().authenticated().and().formLogin()
+                // 认证成功后处理
+                .successHandler(new CustomAuthenticationSuccessHandler())
+                // 认证失败后处理
+                .failureHandler(new CustomAuthenticationFailureHandler()).and().logout()
+                // 设置注销路径
+                .logoutRequestMatcher(new OrRequestMatcher(new AntPathRequestMatcher("/logout", HttpMethod.DELETE.name())))
+                // 注销成功后处理
+                .logoutSuccessHandler(new CustomLogoutSuccessHandler()).and().csrf().disable();
     }
 
 

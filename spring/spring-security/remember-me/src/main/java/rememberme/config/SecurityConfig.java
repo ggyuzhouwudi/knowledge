@@ -1,8 +1,5 @@
 package rememberme.config;
 
-import java.util.UUID;
-import javax.sql.DataSource;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +22,9 @@ import rememberme.handler.CustomAuthenticationFailureHandler;
 import rememberme.handler.CustomAuthenticationSuccessHandler;
 import rememberme.handler.CustomLogoutSuccessHandler;
 import rememberme.service.CustomPersistentTokenBasedRememberMeServices;
+
+import javax.sql.DataSource;
+import java.util.UUID;
 
 /**
  * security 配置
@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
+        http.authorizeRequests()
             .mvcMatchers("/get-kaptcha").permitAll()
             .anyRequest().authenticated()
             .and()

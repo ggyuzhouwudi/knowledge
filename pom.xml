@@ -7,12 +7,13 @@
         <module>spring</module>
         <module>elasticsearch</module>
         <module>RocketMQ</module>
+        <module>cloud</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.7</version>
+        <version>2.3.12.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -33,6 +34,7 @@
         <mysql.version>8.0.28</mysql.version>
         <rocketmq.client.version>4.9.3</rocketmq.client.version>
         <rocketmq.version>2.2.2</rocketmq.version>
+        <spring-cloud-alibaba.version>2.2.10-RC1</spring-cloud-alibaba.version>
     </properties>
 
     <dependencies>
@@ -85,6 +87,15 @@
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
                 <version>${rocketmq.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
