@@ -16,5 +16,6 @@
         <module>nacos</module>
         <module>feign</module>
         <module>stock-service</module>
+        <module>sentinel</module>
     </modules>
 </project>
