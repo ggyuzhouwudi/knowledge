@@ -23,3 +23,9 @@ feign:
     config:
       stock-service:
         logger-level: FULL
+        # 连接超时时间，默认2S，这里设置就是请求其他服务连接的时间
+        connect-timeout: 5000
+        # 请求超时时间，默认5S，这里是请求到其他服务后，其他服务处理到响应回的时间
+        read-timeout: 3000
+        request-interceptors:
+          - interceptor.CustomFeignInterceptor
