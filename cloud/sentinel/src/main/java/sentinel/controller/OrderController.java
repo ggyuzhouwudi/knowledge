@@ -29,4 +29,16 @@ public class OrderController {
         return "被流控了";
 
     }
+
+    @GetMapping("slow")
+    public String slow() throws InterruptedException {
+        Thread.sleep(3000);
+        return "正常访问";
+    }
+
+    @GetMapping("exception")
+    public String exception() {
+        int i = 1/0;
+        return "正常访问";
+    }
 }

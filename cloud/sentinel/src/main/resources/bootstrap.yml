@@ -6,6 +6,7 @@ spring:
     name: order-service
   cloud:
     sentinel:
+      web-context-unify: false
       transport:
         dashboard: localhost:8858
       datasource:

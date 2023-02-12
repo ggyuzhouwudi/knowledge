@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>order-feign</module>
+        <module>feign-sentinel</module>
     </modules>
 
     <dependencies>

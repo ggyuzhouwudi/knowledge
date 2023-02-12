@@ -17,7 +17,7 @@ public class StockController {
     private Integer serverPort;
 
     @GetMapping("reduct")
-    public String reduct() throws InterruptedException {
+    public String reduct() {
         return "reduct-" + serverPort;
     }
 }
