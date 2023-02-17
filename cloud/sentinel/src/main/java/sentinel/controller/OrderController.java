@@ -3,6 +3,7 @@ package sentinel.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,7 +39,29 @@ public class OrderController {
 
     @GetMapping("exception")
     public String exception() {
-        int i = 1/0;
+        int i = 1 / 0;
         return "正常访问";
+    }
+
+    @GetMapping("get/{id}")
+    @SentinelResource(value = "get", blockHandler = "getBlockHandler")
+    public String get(@PathVariable Long id) {
+        return "正常访问:" + id;
+    }
+
+    public String getBlockHandler(BlockException e) {
+        e.printStackTrace();
+        return "被流控了";
+    }
+
+    @GetMapping("system")
+    @SentinelResource(value = "system", blockHandler = "systemBlockHandler")
+    public String system() {
+        return "正常访问:";
+    }
+
+    public String systemBlockHandler(BlockException e) {
+        e.printStackTrace();
+        return "触发系统保护规则";
     }
 }

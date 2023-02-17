@@ -1,0 +1,19 @@
+server:
+  port: 9100
+spring:
+  # nacos会将应用名当成服务名
+  application:
+    name: sentinel-rule-persistence
+  cloud:
+    sentinel:
+      web-context-unify: false
+      transport:
+        dashboard: localhost:8858
+      datasource:
+        rule:
+          nacos:
+            server-addr: localhost:8848
+            username: nacos
+            password: nacos
+            dataId: sentinel-rule-config
+            rule-type: flow # 流控

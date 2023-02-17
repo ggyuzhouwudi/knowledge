@@ -17,5 +17,6 @@
         <module>feign</module>
         <module>stock-service</module>
         <module>sentinel</module>
+        <module>sentinel-rule-persistence</module>
     </modules>
 </project>

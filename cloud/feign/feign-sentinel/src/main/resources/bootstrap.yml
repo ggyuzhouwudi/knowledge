@@ -10,3 +10,7 @@ spring:
       # 如果开启了权限，账号密码必须要显式写清
       username: nacos
       password: nacos
+# 支持sentinel，默认false
+feign:
+  sentinel:
+    enabled: true

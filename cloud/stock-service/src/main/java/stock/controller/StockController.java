@@ -20,4 +20,13 @@ public class StockController {
     public String reduct() {
         return "reduct-" + serverPort;
     }
+
+    /**
+     * feign集成sentinel
+     */
+    @GetMapping("reduct-sentinel")
+    public String reductSentinel() {
+        int a = 1 / 0;
+        return "reduct-" + serverPort;
+    }
 }
