@@ -1,0 +1,12 @@
+server:
+  port: 9001
+spring:
+  # nacos会将应用名当成服务名
+  application:
+    name: order-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
