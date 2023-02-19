@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: order-seata-service
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      # 如果开启了权限，账号密码必须要显式写清
+      username: nacos
+      password: nacos
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/order_seata?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1
+server:
+  port: 9000
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      id-type: auto
+  configuration:
+    map-underscore-to-camel-case: true
+    # 二级缓存
+    cache-enabled: false
+    # 字段值为null也返回
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+seata:
+  enabled: true
+  enable-auto-data-source-proxy: true
+  # 配置事务组
+  tx-service-group: my_test_tx_group
+  registry:
+    # 用于告诉Client如何访问Seata Server
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      # seata服务端的服务名
+      application: seata-server
+      username: nacos
+      password: nacos
+      # seata服务端的分组名称
+      group: SEATA_GROUP
+      namespace: seata-server
+  # 配置Seata服务端的配置中心，用于读取关于Seata Client的一些配置
+  config:
+    # 用于告诉Client如何访问Seata Server
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      username: nacos
+      password: nacos
+      # seata服务端的分组名称
+      group: SEATA_GROUP
+      namespace: seata-server
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    disable-global-transaction: false
+  client:
+    rm:
+      report-success-enable: true

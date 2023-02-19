@@ -5,19 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>oliver</groupId>
-        <artifactId>knowledge</artifactId>
+        <artifactId>seata</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cloud</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>ribbon</module>
-        <module>nacos</module>
-        <module>feign</module>
-        <module>stock-service</module>
-        <module>sentinel</module>
-        <module>sentinel-rule-persistence</module>
-        <module>seata</module>
-    </modules>
+    <artifactId>order-seata-service</artifactId>
 </project>
