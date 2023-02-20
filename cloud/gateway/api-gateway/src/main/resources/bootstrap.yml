@@ -17,7 +17,10 @@ spring:
           # 断言规则
           predicates:
             - Path=/order-serv/**
-            - CheckName=z
+#            - CheckName=z
           filters:
             - StripPrefix=1
-            - CheckName=zz
+#            - CheckName=zz
+    sentinel:
+      transport:
+        dashboard: localhost:8858
