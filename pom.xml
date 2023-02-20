@@ -8,6 +8,7 @@
         <module>elasticsearch</module>
         <module>RocketMQ</module>
         <module>cloud</module>
+        <module>flowable</module>
     </modules>
 
     <parent>
@@ -37,6 +38,7 @@
         <spring-cloud-alibaba.version>2.2.10-RC1</spring-cloud-alibaba.version>
         <feign.version>2.2.7.RELEASE</feign.version>
         <gateway.version>2.2.7.RELEASE</gateway.version>
+        <flow.version>6.3.0</flow.version>
     </properties>
 
     <dependencies>
@@ -108,6 +110,12 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-gateway</artifactId>
                 <version>${gateway.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-engine</artifactId>
+                <version>${flow.version}</version>
             </dependency>
 
         </dependencies>
