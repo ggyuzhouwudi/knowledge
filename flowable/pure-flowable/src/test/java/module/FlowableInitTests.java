@@ -50,8 +50,8 @@ public class FlowableInitTests {
     @Test
     void deploy() {
         Deployment deploy = repositoryService.createDeployment()
-                .addClasspathResource("holiday-request.bpmn20.xml")
-                .name("请假流程")
+                .addClasspathResource("Module_My_Holiday_Test.bpmn20.xml")
+                .name("Module_My_Holiday_Test")
                 .deploy();
         System.out.println(deploy.getId());
         System.out.println("deploy.getName() = " + deploy.getName());

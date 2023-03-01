@@ -9,6 +9,7 @@
         <module>RocketMQ</module>
         <module>cloud</module>
         <module>flowable</module>
+        <module>ip2region</module>
     </modules>
 
     <parent>
